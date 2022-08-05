@@ -1,8 +1,12 @@
 body {
-    font: 12px sans-serif;
+    font: 12px helvetica;
     text-align: center;
     margin: 20px;
 }
+:root {
+    --shadow-color: 0deg 0% 0%;
+}
+
 button {
     border-radius: 5px;
     background: white;
@@ -12,10 +16,14 @@ button {
     margin: 0 5px;
     box-shadow: inset 0 0 0 1px black;
     outline: none;
+    width: 40%;
 }
-#create {
+button:hover {
+    filter: opacity(0.8);
+}
+#rename {
     box-shadow: none;
-    background: #18a0fb;
+    background: #048848;
     color: white;
 }
 input {
@@ -27,11 +35,49 @@ input:hover {
     box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
 }
 button:focus {
-    box-shadow: inset 0 0 0 2px #18a0fb;
+    box-shadow: inset 0 0 0 2px #048848;
 }
 #create:focus {
     box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.3);
 }
 input:focus {
-    box-shadow: inset 0 0 0 2px #18a0fb;
+    box-shadow: inset 0 0 0 2px #048848;
+}
+input[type='text'] {
+    border: solid 1px rgb(200, 200, 200);
+    border-radius: 5px;
+    width: 82%;
+}
+
+.input[type='checkbox'] {
+    display: inline !important;
+    width: 1em !important;
+}
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.suggestion {
+    background-color: rgb(247, 247, 247);
+    border-radius: 5px;
+    width: 82%;
+    margin: 0 auto 1em auto;
+    padding: 0.25em 0.25em 0.5em;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.11),
+        0.8px 1.6px 2px -0.8px hsl(var(--shadow-color) / 0.11), 2.1px 4.1px 5.2px -1.7px hsl(var(--shadow-color) / 0.11);
+}
+.suggestion:hover {
+    filter: brightness(1.1);
+}
+svg {
+    margin: 0 auto;
+    align-self: center;
+    stroke: #099e56;
+}
+
+.correction {
+    color: #20523a;
 }

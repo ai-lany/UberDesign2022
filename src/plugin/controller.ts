@@ -1,26 +1,22 @@
 figma.showUI(__html__);
+figma.ui.resize(600, 300);
 
 figma.ui.onmessage = (msg) => {
-    if (msg.type === 'create-rectangles') {
-        const nodes = [];
-
-        for (let i = 0; i < msg.count; i++) {
-            const rect = figma.createRectangle();
-            rect.x = i * 150;
-            rect.fills = [{type: 'SOLID', color: {r: 1, g: 0.5, b: 0}}];
-            figma.currentPage.appendChild(rect);
-            nodes.push(rect);
+    if (msg.type === 'rename') {
+        if (msg.name === msg.newName) {
+            throw new Error('Your new name is the same as the current name.');
         }
-
-        figma.currentPage.selection = nodes;
-        figma.viewport.scrollAndZoomIntoView(nodes);
-
-        // This is how figma responds back to the ui
-        figma.ui.postMessage({
-            type: 'create-rectangles',
-            message: `Created ${msg.count} Rectangles`,
-        });
+        if (figma.currentPage.findOne((n) => n.name === msg.name) === null) {
+            throw new Error('This layer was not found.');
+        }
+        if (msg.all === true) {
+            const layers = figma.currentPage.findAll((n) => n.name === msg.name);
+            layers.forEach((layers) => {
+                layers.name = msg.newName;
+            });
+        } else {
+            const layer = figma.currentPage.findOne((n) => n.name === msg.name);
+            layer.name = msg.newName;
+        }
     }
-
-    figma.closePlugin();
 };

@@ -1,8 +1,9 @@
 {
-	"name": "figma-plugin-react-template",
+	"name": "RenameIt",
 	"version": "1.0.0",
-	"description": "This plugin template uses Typescript. If you are familiar with Javascript, Typescript will look very familiar. In fact, valid Javascript code is already valid Typescript code.",
+	"description": "This plugin allows you to rename layers or a group of layers with the same name. It will also allow you to view suggested changes based on existing naming conventions.",
 	"license": "ISC",
+	"author": "Ailany",
 	"scripts": {
 		"build": "webpack --mode=production",
 		"build:watch": "webpack --mode=development --watch",
