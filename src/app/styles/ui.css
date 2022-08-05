@@ -1,14 +1,14 @@
 body {
-    font: 12px helvetica;
+    font-size: 0.9em !important;
     text-align: center;
-    margin: 20px;
+    padding: 30px !important;
 }
 :root {
     --shadow-color: 0deg 0% 0%;
 }
 
 button {
-    border-radius: 5px;
+    border-radius: 5px !important;
     background: white;
     color: #048848;
     border: none;
@@ -17,7 +17,7 @@ button {
     outline: none;
     width: 40%;
     cursor: pointer;
-    box-shadow: inset 0 0 0 1px #048848;
+    box-shadow: inset 0 0 0 1px #58c59075;
 }
 button:hover {
     filter: opacity(0.8);
@@ -26,6 +26,7 @@ button:hover {
     box-shadow: none;
     background: #048848;
     color: white;
+    margin-right: 4px;
 }
 input {
     border: none;
@@ -57,6 +58,8 @@ input[type='text']:focus {
     display: inline !important;
     width: 1em !important;
     cursor: pointer;
+    position: relative;
+    top: 4px !important;
 }
 ul {
     list-style: none;
@@ -64,18 +67,27 @@ ul {
 }
 
 .suggestion {
-    background-color: rgb(249, 255, 245);
+    width: 18em !important;
     border-radius: 5px;
-    width: 82%;
-    margin: 0 auto 1.2em auto;
-    padding: 0.5em 0.25em 0.5em;
+    width: 100%;
+    padding: 0.6em 1em 1.5em;
     cursor: pointer;
     text-align: center;
-    box-shadow: 0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.11),
-        0.8px 1.6px 2px -0.8px hsl(var(--shadow-color) / 0.11), 2.1px 4.1px 5.2px -1.7px hsl(var(--shadow-color) / 0.11);
+    border-bottom: solid 2px #e8e8e8;
+    position: relative;
+    right: calc(2em + 2px);
 }
 .suggestion:hover {
-    filter: brightness(1.1);
+    background-color: #f3f3f3;
+}
+.suggestion svg {
+    position: relative !important;
+    bottom: 0.1em !important;
+}
+
+.suggestion:last-of-type {
+    border-bottom: none !important;
+    padding: 0.6em 1em 0.5em;
 }
 svg {
     margin: 0 auto;
@@ -85,4 +97,43 @@ svg {
 
 .correction {
     color: #20523a;
+}
+.checkbox {
+    display: inline;
+    position: absolute;
+    left: 8%;
+    top: 0.25em;
+}
+
+.accordion-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 18em !important;
+    box-shadow: 0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.11),
+        0.8px 1.6px 2px -0.8px hsl(var(--shadow-color) / 0.11), 2.1px 4.1px 5.2px -1.7px hsl(var(--shadow-color) / 0.11);
+    border-radius: 5px !important;
+}
+h5 {
+    margin: 0 !important;
+    display: inline;
+    justify-content: center;
+    font-size: 0.8em;
+    position: relative;
+}
+h5 span {
+    position: absolute;
+    right: -2.25em;
+    top: 0.25em;
+}
+.accordion-button {
+    background-color: rgb(249, 255, 245) !important;
+    border: solid 1px #58c59089 !important;
+    border-radius: 5px !important;
+    padding: 0.65em 1em 0.8em !important;
+}
+.bi-arrow-down {
+    position: relative;
+    left: 40%;
+    bottom: 6px;
 }

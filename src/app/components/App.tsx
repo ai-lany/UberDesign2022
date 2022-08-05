@@ -1,5 +1,7 @@
 import * as React from 'react';
 import '../styles/ui.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.js';
 
 declare function require(path: string): any;
 
@@ -60,7 +62,7 @@ const App = ({}) => {
             <div className="suggestion" onClick={applySuggest}>
                 {props.name}
                 <svg
-                    style={{position: 'relative', top: '4px', margin: '0 4px'}}
+                    style={{margin: '0 4px'}}
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
                     height="16"
@@ -89,12 +91,14 @@ const App = ({}) => {
     }, []);
 
     return (
-        <div style={{display: 'flex'}}>
-            <div style={{flex: 50, borderRight: 'solid 1px #e8e8e8'}}>
+        <div style={{display: 'flex', justifyContent: 'center'}}>
+            <div style={{flex: 50, borderRight: 'solid 1px #e8e8e8', paddingLeft: '2em'}}>
                 <img src={require('../assets/logo.svg')} />
-                <h2>Rename It</h2>
+                <h2>
+                    <strong>RENAME IT</strong>
+                </h2>
                 <p>
-                    <input type="text" ref={layerRef} placeholder="Layer Name" />
+                    <input type="text" ref={layerRef} placeholder="Layer" />
                 </p>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -112,8 +116,9 @@ const App = ({}) => {
                 <p>
                     <input type="text" ref={nameRef} placeholder="New Name" />
                 </p>
-                <input type="checkbox" ref={checkRef} onChange={onCheck} />{' '}
-                <span style={{position: 'relative', bottom: '2px'}}>Rename all elements with this name?</span>
+                <div style={{position: 'relative', bottom: '2px', left: '8px'}} className="checkbox">
+                    <input type="checkbox" ref={checkRef} onChange={onCheck} /> <span>Replace all?</span>
+                </div>
                 <br></br>
                 <br></br>
                 <button id="rename" onClick={onRename}>
@@ -121,17 +126,56 @@ const App = ({}) => {
                 </button>
                 <button onClick={onCancel}>Cancel</button>
             </div>
-            <div style={{flex: 50}}>
-                <h3>Suggested Changes</h3>
-                <ul>
-                    {suggestions.map((suggestion) => {
-                        return (
-                            <li>
-                                <Suggestion name={suggestion.name} to={suggestion.to} />
-                            </li>
-                        );
-                    })}
-                </ul>
+            <div style={{flex: 50, paddingLeft: '2em'}}>
+                <div className="accordion-item">
+                    <h2 className="accordion-header" id="headingOne">
+                        <button
+                            className="accordion-button"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne"
+                            aria-expanded="true"
+                            aria-controls="collapseOne"
+                        >
+                            <h5>
+                                Suggested Changes{' '}
+                                <span>
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="16"
+                                        height="16"
+                                        fill="currentColor"
+                                        className="bi bi-chevron-down"
+                                        viewBox="0 0 16 16"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
+                                        />
+                                    </svg>
+                                </span>
+                            </h5>
+                        </button>
+                    </h2>
+                    <div
+                        id="collapseOne"
+                        className="accordion-collapse collapse show"
+                        aria-labelledby="headingOne"
+                        data-bs-parent="#accordionExample"
+                    >
+                        <div className="accordion-body">
+                            <ul>
+                                {suggestions.map((suggestion) => {
+                                    return (
+                                        <li>
+                                            <Suggestion name={suggestion.name} to={suggestion.to} />
+                                        </li>
+                                    );
+                                })}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );
