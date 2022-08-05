@@ -90,10 +90,9 @@ const App = ({}) => {
 
     return (
         <div style={{display: 'flex'}}>
-            <div style={{flex: 50}}>
+            <div style={{flex: 50, borderRight: 'solid 1px #e8e8e8'}}>
                 <img src={require('../assets/logo.svg')} />
                 <h2>Rename It</h2>
-                <hr />
                 <p>
                     <input type="text" ref={layerRef} placeholder="Layer Name" />
                 </p>
@@ -114,7 +113,7 @@ const App = ({}) => {
                     <input type="text" ref={nameRef} placeholder="New Name" />
                 </p>
                 <input type="checkbox" ref={checkRef} onChange={onCheck} />{' '}
-                <span>Rename all elements with this name?</span>
+                <span style={{position: 'relative', bottom: '2px'}}>Rename all elements with this name?</span>
                 <br></br>
                 <br></br>
                 <button id="rename" onClick={onRename}>

@@ -1,5 +1,5 @@
 figma.showUI(__html__);
-figma.ui.resize(600, 300);
+figma.ui.resize(580, 280);
 
 figma.ui.onmessage = (msg) => {
     if (msg.type === 'rename') {

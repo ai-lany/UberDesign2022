@@ -10,13 +10,14 @@ body {
 button {
     border-radius: 5px;
     background: white;
-    color: black;
+    color: #048848;
     border: none;
     padding: 8px 15px;
     margin: 0 5px;
-    box-shadow: inset 0 0 0 1px black;
     outline: none;
     width: 40%;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 1px #048848;
 }
 button:hover {
     filter: opacity(0.8);
@@ -35,23 +36,27 @@ input:hover {
     box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
 }
 button:focus {
-    box-shadow: inset 0 0 0 2px #048848;
+    box-shadow: inset 0 0 0 1px #048848;
 }
 #create:focus {
-    box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.3);
 }
 input:focus {
-    box-shadow: inset 0 0 0 2px #048848;
+    outline: none;
 }
 input[type='text'] {
     border: solid 1px rgb(200, 200, 200);
     border-radius: 5px;
     width: 82%;
 }
+input[type='text']:focus {
+    box-shadow: inset 0 0 0 1px #58c591;
+}
 
 .input[type='checkbox'] {
     display: inline !important;
     width: 1em !important;
+    cursor: pointer;
 }
 ul {
     list-style: none;
@@ -59,11 +64,11 @@ ul {
 }
 
 .suggestion {
-    background-color: rgb(247, 247, 247);
+    background-color: rgb(249, 255, 245);
     border-radius: 5px;
     width: 82%;
-    margin: 0 auto 1em auto;
-    padding: 0.25em 0.25em 0.5em;
+    margin: 0 auto 1.2em auto;
+    padding: 0.5em 0.25em 0.5em;
     cursor: pointer;
     text-align: center;
     box-shadow: 0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.11),
