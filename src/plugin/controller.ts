@@ -19,4 +19,7 @@ figma.ui.onmessage = (msg) => {
             layer.name = msg.newName;
         }
     }
+    if (msg.type === 'cancel') {
+        figma.closePlugin();
+    }
 };
