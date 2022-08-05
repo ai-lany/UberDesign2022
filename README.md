@@ -10,7 +10,9 @@ This Figma plugin allows you to rename any layer by typing in the name, eliminat
 ## Quickstart
 * Run `yarn` to install dependencies.
 * Run `yarn build:watch` to start webpack in watch mode.
+* For additional node packages run `npm install`.
 * Open `Figma` -> `Plugins` -> `Development` -> `Import plugin from manifest...` and choose `manifest.json` file from this repo.
+
 
 ## Toolings
 This repo is using:
